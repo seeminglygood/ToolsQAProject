@@ -5,8 +5,9 @@ import Pages.Elements.TextBoxPage;
 import Pages.HomePage;
 import SharedData.SharedData;
 import org.testng.annotations.Test;
+import SharedData.Hooks;
 
-    public class TextBoxTest extends SharedData {
+    public class TextBoxTest extends Hooks {
         @Test
         public void testMethod() {
 

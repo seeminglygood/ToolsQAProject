@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import java.time.Duration;
+// in aceasra clasa salvezi informatii reusable legate de browser logic
 public class SharedData {
     private WebDriver driver;
     public WebDriver getDriver() {
@@ -15,7 +16,6 @@ public void scrollPage(Integer x, Integer y){
     JS.executeScript("window.scrollBy(x,y)", "");
 }
 
-    @BeforeMethod
     public void setup(){
         driver = new ChromeDriver();
         driver.get("https://demoqa.com/");
@@ -24,7 +24,6 @@ public void scrollPage(Integer x, Integer y){
         JavascriptExecutor JS = (JavascriptExecutor) driver;
         JS.executeScript("window.scrollBy(0,450)", "");
     }
-    @AfterMethod
     public void clear(){
         driver.quit();
     }

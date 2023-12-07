@@ -6,8 +6,9 @@ import Pages.HomePage;
 import SharedData.SharedData;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
+import SharedData.Hooks;
 
-public class FramesTest extends SharedData {
+public class FramesTest extends Hooks {
     @Test
     public void testMethod(){
         HomePage homePage = new HomePage(getDriver());

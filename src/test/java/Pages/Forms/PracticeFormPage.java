@@ -1,5 +1,6 @@
 package Pages.Forms;
 
+import ObjectData.FormTableObject;
 import Pages.HomePage;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
@@ -16,8 +17,6 @@ public class PracticeFormPage extends HomePage {
     public PracticeFormPage(WebDriver driver) {
         super(driver);
     }
-
-
     @FindBy(id = "firstName")
     WebElement firstName;
     @FindBy(id = "lastName")
@@ -59,20 +58,19 @@ public class PracticeFormPage extends HomePage {
     @FindBy(id = "closeLargeModal")
     WebElement closeButton;
 
-    public void fillPracticeForm(String firstname, String lastname, String email, String gender, String phone,
-                                 String subject, String hobby, String fileSRC, String adresa, String state, String city) {
-        fillFirstName(firstname);
-        fillLastName(lastname);
-        fillEmail(email);
-        selectGender(gender);
-        fillPhoneNumber(phone);
-        selectSubjects(subject);
+    public void fillPracticeForm(FormTableObject formTableObject) {
+        fillFirstName(formTableObject.getFirstNameValue());
+        fillLastName(formTableObject.getLastNameValue());
+        fillEmail(formTableObject.getEmailValue());
+        selectGender(formTableObject.getGender());
+        fillPhoneNumber(formTableObject.getPhoneValue());
+        selectSubjects(formTableObject.getSubjectsValue());
         elementsMethods.scrollByPixels(0, 350);
-        selectHobby(hobby);
-        ChooseFile(fileSRC);
-        fillAddress(adresa);
-        selectState(state);
-        selectCity(city);
+        selectHobby(formTableObject.getHobby());
+        ChooseFile(formTableObject.getPathName());
+        fillAddress(formTableObject.getAddressValue());
+        selectState(formTableObject.getStateInputValue());
+        selectCity(formTableObject.getCityInputValue());
     }
 
     public void fillFirstName(String firstNameValue) {
@@ -195,7 +193,9 @@ public class PracticeFormPage extends HomePage {
     }
 
     public void closeSummaryModal() {
-        elementsMethods.clickElement(closeButton);
+
+        elementsMethods.clickJSElement(closeButton);
+        //elementsMethods.clickElement(closeButton);
     }
 
 }

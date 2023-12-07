@@ -6,8 +6,9 @@ import Pages.HomePage;
 import SharedData.SharedData;
 import org.openqa.selenium.*;
 import org.testng.annotations.Test;
+import SharedData.Hooks;
 
-public class AlertsTest extends SharedData {
+public class AlertsTest extends Hooks {
     @Test
     public void testMethod() {
 

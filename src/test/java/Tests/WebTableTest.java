@@ -6,8 +6,9 @@ import Pages.Elements.WebTablePage;
 import SharedData.SharedData;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
+import SharedData.Hooks;
 
-public class WebTableTest extends SharedData {
+public class WebTableTest extends Hooks {
     @Test
     public void metodaTest() {
         HomePage homePage = new HomePage(getDriver());

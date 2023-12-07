@@ -5,9 +5,10 @@ import Pages.AlertsFrameWindows.WindowsPage;
 import Pages.HomePage;
 import SharedData.SharedData;
 import org.testng.annotations.Test;
+import SharedData.Hooks;
 
 
-public class WindowsTest extends SharedData {
+public class WindowsTest extends Hooks {
     @Test
     public void testMethod() {
 
