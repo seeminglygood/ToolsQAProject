@@ -69,5 +69,5 @@ public class WebTablePage extends BasePage {
         Assert.assertTrue(lastEntryTable.contains(salaryValue));
         Assert.assertTrue(lastEntryTable.contains(departmentValue));
     }
-
+//git test 2nd commit
 }
