@@ -2,7 +2,7 @@ package Tests;
 
 import ObjectData.FormTableObject;
 import Pages.Forms.FormsPage;
-import Pages.HomePage;
+import Pages.HomePage.HomePage;
 import Pages.Forms.PracticeFormPage;
 import org.testng.annotations.Test;
 import SharedData.Hooks;
@@ -12,7 +12,6 @@ public class FormTableTest extends Hooks {
     public void testMethod() {
 
         FormTableObject formTableObject = new FormTableObject(testData);
-
 
         //from the https://demoqa.com/ Home Page, click on the Forms entry => /forms page opens
         HomePage homePage = new HomePage(getDriver());

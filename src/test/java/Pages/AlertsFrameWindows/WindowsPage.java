@@ -1,13 +1,10 @@
 package Pages.AlertsFrameWindows;
 
-import HelpMethods.WindowMethods;
 import Pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
-import java.util.ArrayList;
-import java.util.List;
 
 public class WindowsPage extends BasePage {
     public WindowsPage(WebDriver driver) {

@@ -1,7 +1,7 @@
 package Pages.Forms;
 
 import ObjectData.FormTableObject;
-import Pages.HomePage;
+import Pages.BasePage;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-public class PracticeFormPage extends HomePage {
+public class PracticeFormPage extends BasePage {
 
     public PracticeFormPage(WebDriver driver) {
         super(driver);
@@ -194,7 +194,6 @@ public class PracticeFormPage extends HomePage {
     public void closeSummaryModal() {
 
         elementsMethods.clickJSElement(closeButton);
-        //elementsMethods.clickElement(closeButton);
     }
 
 }

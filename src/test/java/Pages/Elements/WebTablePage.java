@@ -12,6 +12,7 @@ import java.util.List;
 public class WebTablePage extends BasePage {
 
     public WebTablePage(WebDriver driver) {
+
         super(driver);
     }
 
@@ -68,5 +69,4 @@ public class WebTablePage extends BasePage {
         Assert.assertTrue(lastEntryTable.contains(webTableObject.getSalaryValue()));
         Assert.assertTrue(lastEntryTable.contains(webTableObject.getDepartmentValue()));
     }
-//git test 2nd commit
 }

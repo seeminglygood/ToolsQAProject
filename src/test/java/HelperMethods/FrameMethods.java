@@ -1,4 +1,4 @@
-package HelpMethods;
+package HelperMethods;
 
 import org.openqa.selenium.WebDriver;
 

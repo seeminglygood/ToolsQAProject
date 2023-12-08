@@ -3,16 +3,13 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
-// in aceasra clasa salvezi informatii reusable legate de browser logic
+// in aceasta clasa salvezi informatii reusable legate de browser logic
+
 public class SharedData {
     private WebDriver driver;
     public WebDriver getDriver() {
         return driver;
     }
-public void scrollPage(Integer x, Integer y){
-    JavascriptExecutor JS = (JavascriptExecutor) getDriver();
-    JS.executeScript("window.scrollBy(x,y)", "");
-}
 
     public void setup(){
         driver = new ChromeDriver();
