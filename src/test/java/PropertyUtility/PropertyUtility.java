@@ -11,7 +11,6 @@ public class PropertyUtility {
 
     public PropertyUtility(String fileName) {
         loadDataFile(fileName);
-
     }
 
     // metoda care incarca un fisier de tip ".properties"

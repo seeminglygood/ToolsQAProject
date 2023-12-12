@@ -2,8 +2,6 @@ package SharedData;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import java.time.Duration;
 // in aceasra clasa salvezi informatii reusable legate de browser logic
 public class SharedData {

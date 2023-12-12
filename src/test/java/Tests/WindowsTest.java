@@ -3,7 +3,6 @@ package Tests;
 import Pages.AlertsFrameWindows.AlertsFrameAndWindowsPage;
 import Pages.AlertsFrameWindows.WindowsPage;
 import Pages.HomePage;
-import SharedData.SharedData;
 import org.testng.annotations.Test;
 import SharedData.Hooks;
 

@@ -12,6 +12,7 @@ public class AlertObject {
     public void setPromptAlertValue(String promptAlertValue) {
         this.promptAlertValue = promptAlertValue;
     }
+
     public AlertObject(HashMap<String, String> testData) {
         populateObject(testData);
     }

@@ -4,7 +4,6 @@ import ObjectData.WebTableObject;
 import Pages.Elements.ElementsPage;
 import Pages.HomePage;
 import Pages.Elements.WebTablePage;
-import SharedData.SharedData;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 import SharedData.Hooks;

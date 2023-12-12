@@ -3,7 +3,6 @@ package Tests;
 import Pages.AlertsFrameWindows.AlertsFrameAndWindowsPage;
 import Pages.AlertsFrameWindows.FramesPage;
 import Pages.HomePage;
-import SharedData.SharedData;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 import SharedData.Hooks;

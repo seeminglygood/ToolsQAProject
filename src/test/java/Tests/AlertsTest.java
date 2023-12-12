@@ -4,7 +4,6 @@ import ObjectData.AlertObject;
 import Pages.AlertsFrameWindows.AlertsPage;
 import Pages.AlertsFrameWindows.AlertsFrameAndWindowsPage;
 import Pages.HomePage;
-import SharedData.SharedData;
 import org.openqa.selenium.*;
 import org.testng.annotations.Test;
 import SharedData.Hooks;
