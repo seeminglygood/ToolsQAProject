@@ -1,5 +1,6 @@
 package Tests;
 
+import ObjectData.AlertObject;
 import Pages.AlertsFrameWindows.AlertsPage;
 import Pages.AlertsFrameWindows.AlertsFrameAndWindowsPage;
 import Pages.HomePage;
@@ -11,6 +12,8 @@ import SharedData.Hooks;
 public class AlertsTest extends Hooks {
     @Test
     public void testMethod() {
+
+        AlertObject alertObject = new AlertObject(testData);
 
         HomePage homePage = new HomePage(getDriver());
         homePage.alertsFramesWindowsClick();
@@ -26,7 +29,7 @@ public class AlertsTest extends Hooks {
         alertsPage.interactAlertOK();
         alertsPage.interactTimerAlert();
         alertsPage.interactConfirmAlert();
-        alertsPage.interactPromptAlert();
+        alertsPage.interactPromptAlert(alertObject);
 
     }
 

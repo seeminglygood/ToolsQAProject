@@ -1,5 +1,6 @@
 package Pages.Elements;
 
+import ObjectData.WebTableObject;
 import Pages.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -42,32 +43,32 @@ public class WebTablePage extends BasePage {
     private WebElement submit;
 
 
-    public void addNewEntry(String firstNameValue, String lastNameValue, String emailValue, String ageValue, String salaryValue, String departmentValue) {
+    public void addNewEntry(WebTableObject webTableObject) {
 
         Integer actualTableSize = actualEntries.size();
         elementsMethods.clickElement(addButton);
-        elementsMethods.fillElement(firstName, firstNameValue);
-        elementsMethods.fillElement(lastName, lastNameValue);
-        elementsMethods.fillElement(email, emailValue);
-        elementsMethods.fillElement(age, ageValue);
-        elementsMethods.fillElement(salary, salaryValue);
-        elementsMethods.fillElement(department, departmentValue);
+        elementsMethods.fillElement(firstName, webTableObject.getFirstNameValue());
+        elementsMethods.fillElement(lastName, webTableObject.getLastNameValue());
+        elementsMethods.fillElement(email, webTableObject.getEmailValue());
+        elementsMethods.fillElement(age, webTableObject.getAgeValue());
+        elementsMethods.fillElement(salary, webTableObject.getSalaryValue());
+        elementsMethods.fillElement(department, webTableObject.getDepartmentValue());
         elementsMethods.clickElement(submit);
 
-        validateNewEntry(actualTableSize, firstNameValue, lastNameValue, emailValue, ageValue, salaryValue, departmentValue);
+        validateNewEntry(actualTableSize, webTableObject);
     }
 
-    private void validateNewEntry(Integer actualTableSize, String firstNameValue, String lastNameValue, String emailValue, String ageValue, String salaryValue, String departmentValue) {
+    private void validateNewEntry(Integer actualTableSize, WebTableObject webTableObject) {
 
         Integer expectedTableSize = actualEntries.size();
         Assert.assertTrue(actualTableSize + 1 == expectedTableSize);
         String lastEntryTable = actualEntries.get(actualTableSize).getText();
-        Assert.assertTrue(lastEntryTable.contains(firstNameValue));
-        Assert.assertTrue(lastEntryTable.contains(lastNameValue));
-        Assert.assertTrue(lastEntryTable.contains(ageValue));
-        Assert.assertTrue(lastEntryTable.contains(emailValue));
-        Assert.assertTrue(lastEntryTable.contains(salaryValue));
-        Assert.assertTrue(lastEntryTable.contains(departmentValue));
+        Assert.assertTrue(lastEntryTable.contains(webTableObject.getFirstNameValue()));
+        Assert.assertTrue(lastEntryTable.contains(webTableObject.getLastNameValue()));
+        Assert.assertTrue(lastEntryTable.contains(webTableObject.getAgeValue()));
+        Assert.assertTrue(lastEntryTable.contains(webTableObject.getEmailValue()));
+        Assert.assertTrue(lastEntryTable.contains(webTableObject.getSalaryValue()));
+        Assert.assertTrue(lastEntryTable.contains(webTableObject.getDepartmentValue()));
     }
 //git test 2nd commit
 }

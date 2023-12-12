@@ -1,5 +1,6 @@
 package Pages.AlertsFrameWindows;
 
+import ObjectData.AlertObject;
 import Pages.BasePage;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -41,8 +42,8 @@ public class AlertsPage extends BasePage {
         alertsMethods.cancelAlert();
     }
 
-    public void interactPromptAlert() {
+    public void interactPromptAlert(AlertObject alertObject) {
         elementsMethods.clickElement(promptAlertButton);
-        alertsMethods.fillAlert("hahaha");
+        alertsMethods.fillAlert(alertObject.getPromptAlertValue());
     }
 }

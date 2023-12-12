@@ -22,7 +22,7 @@ public class FormTableObject {
     }
 
     // facem o metoda care sa mapeze valorile din .properties la variabilele din clasa
-    public void populateObject(HashMap<String, String> testData) {
+    private void populateObject(HashMap<String, String> testData) {
         for (String Key : testData.keySet()) {
             switch (Key) {
                 case "firstNameValue":
