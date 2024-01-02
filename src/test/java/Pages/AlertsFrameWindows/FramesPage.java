@@ -1,5 +1,6 @@
 package Pages.AlertsFrameWindows;
 
+import Logger.LoggerUtility;
 import Pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,13 +19,16 @@ public class FramesPage extends BasePage {
 
     public void interactFirstFrame() {
       frameMethods.switchToFrame("frame1");
-        System.out.println(frameText.getText());
+        LoggerUtility.info("The user clicks on the 1st frame; focus is switched to the frame; text inside the frame is: " + frameText.getText());
       frameMethods.switchToMainFrame();
+        LoggerUtility.info("The user clicks outside the 1st frame; focus switched to the main page.");
     }
 
     public void interactSecondFrame() {
         frameMethods.switchToFrame("frame2");
-        System.out.println(frameText.getText());
+        LoggerUtility.info("The user clicks on the 2nd frame; focus is switched to the frame; text inside the frame is: " + frameText.getText());
+        frameMethods.switchToMainFrame();
+        LoggerUtility.info("The user clicks outside the 2nd frame; focus switched to the main page.");
     }
 
 }

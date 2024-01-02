@@ -11,6 +11,7 @@ import SharedData.Hooks;
 public class WebTableTest extends Hooks {
     @Test
     public void metodaTest() {
+
         WebTableObject webTableObject = new WebTableObject(testData);
 
         HomePage homePage = new HomePage(getDriver());
@@ -21,8 +22,6 @@ public class WebTableTest extends Hooks {
 
         ElementsPage elementsPage = new ElementsPage(getDriver());
         elementsPage.clickWebTables();
-
-
 
         WebTablePage webTablePage = new WebTablePage(getDriver());
 

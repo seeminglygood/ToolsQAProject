@@ -1,19 +1,49 @@
-log4j2.xml<?xml version="1.0" encoding="UTF-8"?>
-        <!-- Extra logging related to initialization of Log4j.
-         Set to debug or trace if log4j initialization is failing. -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Extra logging related to initialization of Log4j.
+ Set to debug or trace if log4j initialization is failing. -->
 <Configuration status="warn">
     <Appenders>
-        <!-- Console appender configuration -->
-        <Console name="console" target="SYSTEM_OUT">
-            <PatternLayout
-                    pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
-        </Console>
-    </Appenders>
+        <!-- Parallel version of logging -->
+        <Routing name="RoutingAppender">
+                        <Routes pattern="$${ctx:threadName}">
+                            <Route>
+                                <File
+                                        fileName="target/logs/suite/${ctx:threadName}.log"
+                                        name="appender-${ctx:threadName}"
+                                        append="false">
+                                    <PatternLayout>
+                                        <Pattern>[%date{ISO8601}][%-5level][%t] %m%n</Pattern>
+                                    </PatternLayout>
+                                </File>
+                            </Route>
+                        </Routes>
 
-    <Loggers>
-        <!-- Root logger referring to console appender -->
-        <Root level="info" additivity="false">
-            <AppenderRef ref="console" />
-        </Root>
-    </Loggers>
-</Configuration>
+<!--            <Routes pattern="noThread">-->
+<!--                <Route>-->
+<!--                    <File-->
+<!--                            fileName="target/logs/suite/noThread.log"-->
+<!--                    name="appender"-->
+<!--                    append="false">-->
+<!--                    <PatternLayout>-->
+<!--                        <Pattern>[%date{ISO8601}][%-5level] %m%n</Pattern>-->
+<!--                    </PatternLayout>-->
+<!--                </File>-->
+<!--            </Route>-->
+<!--        </Routes>-->
+    </Routing>
+
+    <!-- Console appender configuration -->
+    <Console name="console" target="SYSTEM_OUT">
+        <PatternLayout
+                pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n"/>
+    </Console>
+</Appenders>
+
+<Loggers>
+<!-- Root logger referring to console appender -->
+<Root level="info" additivity="false">
+    <AppenderRef ref="console"/>
+    <AppenderRef ref="RoutingAppender"/>
+</Root>
+</Loggers>
+        </Configuration>
