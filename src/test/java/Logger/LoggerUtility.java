@@ -44,6 +44,7 @@ public class LoggerUtility {
     // metoda care returneaza un mesaj de eroare in caz de failure
     public static synchronized void error(String message){
         logger.error(Thread.currentThread().getName() + " : " + getCallInfo() + " " + message);
+        logger.info("======= Test failed  =======");
     }
 
 // metoda care agregheaza contiutul a multiple fisiere de tip log intr-unul singur
@@ -60,25 +61,27 @@ public static void mergeLogsIntoOne(){
         // loop for reading the contents of all the files
         // in the directory target/logs/suite/
         for (String fileName : fileNames) {
-            System.out.println("Reading from " + fileName);
+            if (fileName.contains(".log")) {
+                System.out.println("Reading from " + fileName);
 
-            // create instance of file from Name of
-            // the file stored in string Array
-            File f = new File(dir, fileName);
+                // create instance of file from Name of
+                // the file stored in string Array
+                File f = new File(dir, fileName);
 
-            // create object of BufferedReader
-            BufferedReader br = new BufferedReader(new FileReader(f));
-            pw.println("Contents of file " + fileName);
+                // create object of BufferedReader
+                BufferedReader br = new BufferedReader(new FileReader(f));
+                pw.println("Contents of file " + fileName);
 
-            // Read from current file
-            String line = br.readLine();
-            while (line != null) {
+                // Read from current file
+                String line = br.readLine();
+                while (line != null) {
 
-                // write to the output file
-                pw.println(line);
-                line = br.readLine();
+                    // write to the output file
+                    pw.println(line);
+                    line = br.readLine();
+                }
+                pw.flush();
             }
-            pw.flush();
         }
     }
     catch (Exception exception){

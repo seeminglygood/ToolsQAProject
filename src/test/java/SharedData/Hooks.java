@@ -2,6 +2,7 @@ package SharedData;
 
 import Logger.LoggerUtility;
 import PropertyUtility.PropertyUtility;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
@@ -23,10 +24,18 @@ public class Hooks extends SharedData {
     }
 
     @AfterMethod
-    public void clearEnvironment() {
-        clear();
-        LoggerUtility.endTestCase(testName);
+    public void clearEnvironment(ITestResult result) {
+        if (result.getStatus() == ITestResult.FAILURE) {
+            LoggerUtility.error(result.getThrowable().getMessage());
+            clear();
+        } else {
+            clear();
+            LoggerUtility.endTestCase(testName);
+        }
     }
+
+    //adaugam un listener pe statusul testului
+
 
     @AfterSuite
     public void finishArtifacts(){
