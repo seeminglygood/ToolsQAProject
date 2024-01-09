@@ -34,13 +34,13 @@ public class TextBoxPage extends BasePage {
 
     public void fillTextBoxForm(TextBoxObject textBoxObject) {
         elementsMethods.fillElement(fullName, textBoxObject.getUsername());
-        LoggerUtility.info("The user fills in the Full Name: " + fullName);
+        LoggerUtility.info("The user fills in the Full Name: " + textBoxObject.getUsername());
         elementsMethods.fillElement(userEmail, textBoxObject.getEmail());
-        LoggerUtility.info("The user fills in the Email: " + userEmail);
+        LoggerUtility.info("The user fills in the Email: " + textBoxObject.getEmail());
         elementsMethods.fillElement(currentAddress, textBoxObject.getAddress());
-        LoggerUtility.info("The user fills in the Current Address: " + currentAddress);
+        LoggerUtility.info("The user fills in the Current Address: " + textBoxObject.getAddress());
         elementsMethods.fillElement(permanentAddress, textBoxObject.getPermaAddress());
-        LoggerUtility.info("The user fills in the Permanent Address: " + permanentAddress);
+        LoggerUtility.info("The user fills in the Permanent Address: " + textBoxObject.getPermaAddress());
         elementsMethods.scrollByPixels(0, 450);
         LoggerUtility.info("The user scrolls the page so the Submit button is visible");
         elementsMethods.clickElement(submit);
