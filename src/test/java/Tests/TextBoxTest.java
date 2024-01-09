@@ -22,7 +22,7 @@ import SharedData.Hooks;
             TextBoxPage textBoxPage = new TextBoxPage(getDriver());
 
             textBoxPage.fillTextBoxForm(textBoxObject);
-            textBoxPage.validateTextBox(textBoxObject);
+            textBoxPage.validateTextBoxDataEntry(textBoxObject);
 
         }
     }

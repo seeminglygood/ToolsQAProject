@@ -113,7 +113,7 @@ public class PracticeFormPage extends HomePage {
 
     public void selectSubjects(String subjectsValue) {
         elementsMethods.fillElement(subjects, subjectsValue, Keys.ENTER);
-        LoggerUtility.info("The user enters the " + subjectsValue + " in the Subjects field");
+        LoggerUtility.info("The user enters " + subjectsValue + " in the Subjects field");
     }
 
     public void selectHobby(String hobby) {

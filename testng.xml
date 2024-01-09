@@ -1,12 +1,12 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name = "Parallel Testing Suite">
     <test name = "Parallel Tests" thread-count = "5" parallel = "classes">
-<!--<packages>-->
-<!--    <package name="Tests.*"/>-->
-<!--</packages>-->
-        <classes>
-            <class name="Tests.AlertsTest"></class>
-            <class name="Tests.FormTableTest"></class>
-        </classes>
+<packages>
+    <package name="Tests.*"/>
+</packages>
+<!--        <classes>-->
+<!--            <class name="Tests.AlertsTest"></class>-->
+<!--            <class name="Tests.FormTableTest"></class>-->
+<!--        </classes>-->
     </test>
 </suite>
