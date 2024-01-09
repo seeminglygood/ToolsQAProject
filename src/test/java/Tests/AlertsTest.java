@@ -17,7 +17,6 @@ public class AlertsTest extends Hooks {
         HomePage homePage = new HomePage(getDriver());
         homePage.alertsFramesWindowsClick();
 
-
         JavascriptExecutor JS = (JavascriptExecutor) getDriver();
         JS.executeScript("window.scrollBy(0,450)", "");
 
@@ -27,9 +26,9 @@ public class AlertsTest extends Hooks {
         AlertsPage alertsPage = new AlertsPage(getDriver());
         alertsPage.interactAlertOK();
         alertsPage.interactTimerAlert();
-        alertsPage.interactConfirmAlert();
-        alertsPage.interactPromptAlert(alertObject);
-
+        alertsPage.cancelConfirmAlert();
+        alertsPage.acceptConfirmAlert();
+        alertsPage.fillPromptAlert(alertObject);
+        alertsPage.cancelPromptAlert();
     }
-
 }

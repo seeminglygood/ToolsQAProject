@@ -1,5 +1,6 @@
 package Pages.Forms;
 
+import Logger.LoggerUtility;
 import ObjectData.FormTableObject;
 import Pages.BasePage;
 import org.openqa.selenium.*;
@@ -74,72 +75,90 @@ public class PracticeFormPage extends BasePage {
 
     public void fillFirstName(String firstNameValue) {
         elementsMethods.fillElement(firstName, firstNameValue);
+        LoggerUtility.info("The user fills the First Name field with value: " + firstNameValue);
     }
 
     public void fillLastName(String lastNameValue) {
         elementsMethods.fillElement(lastName, lastNameValue);
+        LoggerUtility.info("The user fills the Last Name field with value: " + lastNameValue);
+
     }
 
     public void fillEmail(String emailValue) {
         elementsMethods.fillElement(email, emailValue);
+        LoggerUtility.info("The user fills the Email field with value: " + emailValue);
     }
 
     public void selectGender(String gender) {
         switch (gender) {
             case "Male":
                 elementsMethods.clickElement(genderMale);
+                LoggerUtility.info("The user selects the Male radio button");
                 break;
             case "Female":
                 elementsMethods.clickElement(genderFemale);
+                LoggerUtility.info("The user selects the Female radio button");
                 break;
             case "Other":
                 elementsMethods.clickElement(genderOther);
+                LoggerUtility.info("The user selects the Other radio button");
                 break;
         }
     }
 
     public void fillPhoneNumber(String phoneValue) {
-
         elementsMethods.fillElement(phone, phoneValue);
+        LoggerUtility.info("The user fills the Phone Number field with value: " + phoneValue);
     }
 
     public void selectSubjects(String subjectsValue) {
         elementsMethods.fillElement(subjects, subjectsValue, Keys.ENTER);
+        LoggerUtility.info("The user enters " + subjectsValue + " in the Subjects field");
     }
 
     public void selectHobby(String hobby) {
         switch (hobby) {
             case "Sports":
                 elementsMethods.clickElement(hobbySports);
+                LoggerUtility.info("The user selects the Sports checkbox");
                 break;
             case "Reading":
                 elementsMethods.clickElement(hobbyReading);
+                LoggerUtility.info("The user selects the Reading checkbox");
                 break;
             case "Music":
                 elementsMethods.clickElement(hobbyMusic);
+                LoggerUtility.info("The user selects the Music checkbox");
                 break;
         }
     }
 
     public void ChooseFile(String pathName) {
         elementsMethods.uploadFile(chooseFile, pathName);
+        LoggerUtility.info("The user selects a file to upload with the following path name: " + pathName);
     }
 
     public void fillAddress(String addressValue) {
         elementsMethods.fillElement(address, addressValue);
+        LoggerUtility.info("The user fills the Address field with value: " + addressValue);
+
     }
 
     public void selectState(String stateInputValue) {
         elementsMethods.scrollByPixels(0, 450);
+        LoggerUtility.info("The user scrolls the page.");
         elementsMethods.fillElement(stateInput, stateInputValue, Keys.ENTER);
+        LoggerUtility.info("The user selects the " + stateInputValue + " from the Select State drop down selector and submits; Select City activates");
     }
 
     public void selectCity(String cityInputValue) {
         elementsMethods.fillElement(cityInput, cityInputValue, Keys.ENTER);
+        LoggerUtility.info("The user selects the " + cityInputValue + " from the Select City drop down selector and submits");
     }
 
     public void clickSubmit() {
         elementsMethods.clickJSElement(submit);
+        LoggerUtility.info("The user clicks the Submit button at the bottom right side of the form");
     }
 
     public void validatePracticeForm(String expectedSummaryText, String firstNameValue, String lastNameValue, String emailValue,
@@ -194,6 +213,11 @@ public class PracticeFormPage extends BasePage {
     public void closeSummaryModal() {
 
         elementsMethods.clickJSElement(closeButton);
+<<<<<<< HEAD
+=======
+        LoggerUtility.info("The user clicks the Close button on the Summary page");
+        //elementsMethods.clickElement(closeButton);
+>>>>>>> LogBranch
     }
 
 }

@@ -1,5 +1,8 @@
 package Pages.Elements;
 
+import Logger.LoggerUtility;
+import ObjectData.TextBoxObject;
+import ObjectData.WebTableObject;
 import Pages.BasePage;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +16,7 @@ public class TextBoxPage extends BasePage {
     }
 
     @FindBy(id = "userName")
-    private WebElement userName;
+    private WebElement fullName;
 
     @FindBy(id = "userEmail")
     private WebElement userEmail;
@@ -29,45 +32,34 @@ public class TextBoxPage extends BasePage {
     @FindBy(id = "output")
     private WebElement output;
 
-    public void fillTextBoxForm(String username, String email, String address, String permaAddress) {
-        fillUserName(username);
-        fillUserEmail(email);
-        fillCurrentAddress(address);
-        fillPermanentAddress(permaAddress);
-        JavascriptExecutor JS = (JavascriptExecutor) driver;
-        JS.executeScript("window.scrollBy(0,450)", "");
-        clickSubmit();
-    }
-
-    ;
-
-    public void fillUserName(String username) {
-        elementsMethods.fillElement(userName, username);
-    }
-
-    public void fillUserEmail(String email) {
-        elementsMethods.fillElement(userEmail, email);
-    }
-
-    public void fillCurrentAddress(String address) {
-        elementsMethods.fillElement(currentAddress, address);
-    }
-
-    public void fillPermanentAddress(String permaAddress) {
-        elementsMethods.fillElement(permanentAddress, permaAddress);
-    }
-
-    public void clickSubmit() {
+    public void fillTextBoxForm(TextBoxObject textBoxObject) {
+        elementsMethods.fillElement(fullName, textBoxObject.getUsername());
+        LoggerUtility.info("The user fills in the Full Name: " + textBoxObject.getUsername());
+        elementsMethods.fillElement(userEmail, textBoxObject.getEmail());
+        LoggerUtility.info("The user fills in the Email: " + textBoxObject.getEmail());
+        elementsMethods.fillElement(currentAddress, textBoxObject.getAddress());
+        LoggerUtility.info("The user fills in the Current Address: " + textBoxObject.getAddress());
+        elementsMethods.fillElement(permanentAddress, textBoxObject.getPermaAddress());
+        LoggerUtility.info("The user fills in the Permanent Address: " + textBoxObject.getPermaAddress());
+        elementsMethods.scrollByPixels(0, 450);
+        LoggerUtility.info("The user scrolls the page so the Submit button is visible");
         elementsMethods.clickElement(submit);
+        LoggerUtility.info("The user clicks the Submit button");
     }
 
-    public void validateTextBox(String username, String email, String address, String permaAddress) {
+
+    public void validateTextBoxDataEntry(TextBoxObject textBoxObject) {
+        Assert.assertTrue(output.isDisplayed());
+        LoggerUtility.info("The Output section is displayed under the input fields and the Submit button");
         String text = output.getText();
-        Assert.assertTrue(text.contains("Name:" + username));
-        Assert.assertTrue(text.contains("Email:" + email));
-        Assert.assertTrue(text.contains("Current Address :" + address));
-        Assert.assertTrue(text.contains("Permananet Address :" + permaAddress));
-        System.out.println(text);
+        Assert.assertTrue(text.contains("Name:" + textBoxObject.getUsername()));
+        LoggerUtility.info("The Output contains the correct Name");
+        Assert.assertTrue(text.contains("Email:" + textBoxObject.getEmail()));
+        LoggerUtility.info("The Output contains the correct Email");
+        Assert.assertTrue(text.contains("Current Address :" + textBoxObject.getAddress()));
+        LoggerUtility.info("The Output contains the correct Current Address");
+        Assert.assertTrue(text.contains("Permananet Address :" + textBoxObject.getPermaAddress()));
+        LoggerUtility.info("The Output contains the correct Permanent Address");
     }
 
 }

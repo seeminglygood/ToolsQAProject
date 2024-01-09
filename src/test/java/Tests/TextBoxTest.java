@@ -1,5 +1,6 @@
 package Tests;
 
+import ObjectData.TextBoxObject;
 import Pages.Elements.ElementsPage;
 import Pages.Elements.TextBoxPage;
 import Pages.HomePage;
@@ -10,20 +11,18 @@ import SharedData.Hooks;
         @Test
         public void testMethod() {
 
+            TextBoxObject textBoxObject = new TextBoxObject(testData);
+
             HomePage homePage = new HomePage(getDriver());
             homePage.clickElements();
 
             ElementsPage elementsPage = new ElementsPage(getDriver());
             elementsPage.clickTextBox();
 
-            String username = "miauhampiu";
-            String email = "blabla@gmail.com";
-            String address = "o tara, un oras, o casa, 555";
-            String permaAddress = "alta tara, alt oras, alta casa, 555";
-
             TextBoxPage textBoxPage = new TextBoxPage(getDriver());
-            textBoxPage.fillTextBoxForm(username, email, address, permaAddress);
-            textBoxPage.validateTextBox(username, email, address, permaAddress);
+
+            textBoxPage.fillTextBoxForm(textBoxObject);
+            textBoxPage.validateTextBoxDataEntry(textBoxObject);
 
         }
     }

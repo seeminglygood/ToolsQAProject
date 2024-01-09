@@ -1,13 +1,13 @@
 package Tests;
 
 import Pages.AlertsFrameWindows.AlertsFrameAndWindowsPage;
-import Pages.AlertsFrameWindows.WindowsPage;
+import Pages.AlertsFrameWindows.BrowserWindowsPage;
 import Pages.HomePage;
 import org.testng.annotations.Test;
 import SharedData.Hooks;
 
 
-public class WindowsTest extends Hooks {
+public class BrowserWindowsTest extends Hooks {
     @Test
     public void testMethod() {
 
@@ -17,15 +17,11 @@ public class WindowsTest extends Hooks {
         AlertsFrameAndWindowsPage alertsFrameAndWindowsPage = new AlertsFrameAndWindowsPage(getDriver());
         alertsFrameAndWindowsPage.browserWindowsClick();
 
-        // define variables for tests
-        String initialURL = getDriver().getCurrentUrl();
-        String expectedURL = "https://demoqa.com/sample";
-
-        WindowsPage browserWindowsPage = new WindowsPage(getDriver());
+        BrowserWindowsPage browserWindowsPage = new BrowserWindowsPage(getDriver());
         // New Tab Test
-        browserWindowsPage.interactTab(initialURL, expectedURL);
+        browserWindowsPage.interactTab();
         //New window Test
-        browserWindowsPage.interactNewWindow(initialURL, expectedURL);
+        browserWindowsPage.interactNewWindow();
 
     }
 }

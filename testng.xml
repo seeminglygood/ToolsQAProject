@@ -4,5 +4,9 @@
 <packages>
     <package name="Tests.*"/>
 </packages>
+<!--        <classes>-->
+<!--            <class name="Tests.AlertsTest"></class>-->
+<!--            <class name="Tests.FormTableTest"></class>-->
+<!--        </classes>-->
     </test>
 </suite>
